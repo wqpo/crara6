@@ -1111,12 +1111,25 @@ button:hover {
     right: 5px; /* 右の余白を5pxに変更 */
     z-index: 1;
     width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: 80vh; /* 縦に100pxから1000vhを追加（合計1100vh） */
+    height: calc(80vh + 10vh); /* 80vhに10vhを追加（合計90vh） */
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
-    transform: translateX(0); /* スライドインを解除 */
-    animation: none; /* アニメーションを無効化 */
+    transform: translateX(100%); /* 初期状態で右にスライドアウト */
+    animation: slideInBackgroundLunch 1.5s ease-out forwards; /* アニメーション追加 */
+    top: 10vh; /* 上に10vh追加 */
+    clip-path: inset(0 0 5vh 0); /* 下部5vhを削除 */
+  }
+
+  /* ランチメニューの背景画像アニメーション */
+  @keyframes slideInBackgroundLunch {
+    0% {
+      transform: translateX(100%); /* 初期位置（画面外右） */
+    }
+    100% {
+      transform: translateX(0); /* スライドインして元の位置 */
+    }
+    
   }
 
   /* ディナーメニューの背景画像設定 */
@@ -1126,12 +1139,23 @@ button:hover {
     left: 5px; /* 左の余白を5pxに変更 */
     z-index: 1;
     width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: 80vh; /* 縦に100pxから1000vhを追加（合計1100vh） */
+    height: 83vh; /* 縦に100pxから1000vhを追加（合計1100vh） */
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
     transform: translateX(0); /* スライドインを解除 */
     animation: none; /* アニメーションを無効化 */
+    clip-path: inset(5vh 0 0 0); /* 上部5vhを削除 */
   }
-
+  @keyframes slideInTextDinner {
+    0% {
+      transform: translateX(-100%); /* 初期位置（画面外左） */
+      opacity: 0;  /* 初期状態で非表示 */
+    }
+    100% {
+      transform: translateX(0); /* 元の位置にスライドイン */
+      opacity: 1; /* 最後に完全に表示 */
+    }
+  }
+  
 }
