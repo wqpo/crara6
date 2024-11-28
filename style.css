@@ -1069,7 +1069,7 @@ button:hover {
     right: 5px; /* 右の余白を5pxに変更 */
     z-index: 1;
     width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: calc(100px + 800px); /* 縦に100pxから80pxを延長（合計180px） */
+    height: calc(100vh + 800vh); /* 縦に100pxから80pxを延長（合計180px） */
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
@@ -1084,7 +1084,7 @@ button:hover {
     left: 5px; /* 左の余白を5pxに変更 */
     z-index: 1;
     width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: calc(100px +　800px); /* 縦に100pxから80pxを延長（合計180px） */
+    height: calc(100vh +　800vh); /* 縦に100pxから80pxを延長（合計180px） */
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
