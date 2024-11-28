@@ -431,16 +431,31 @@ section {
 
 /* スマホ用のスタイル */
 @media (max-width: 767.98px) {
+  /* ランチメニューの背景を上に50px長くする */
+  #lunch-services .background-image {
+    bottom: 50px; /* 背景の下端位置を50px上げる */
+    height: calc(60% + 50px); /* 背景の高さを50px長くする */
+  }
+
+  /* ディナーメニューの背景を下に30px長くする */
+  #dinner-services .background-image {
+    bottom: 30px; /* 背景の下端位置を30px下げる */
+    height: calc(60% + 30px); /* 背景の高さを30px長くする */
+  }
+
+  /* 横並びのレイアウト */
   .row {
     display: flex;
     overflow-x: auto; /* スクロール可能にする */
   }
 
+  /* .col-4 を横並びに */
   .col-4 {
     flex: 0 0 auto; /* 自動幅に設定 */
     width: 33.33%; /* 3つのカラムを横に並べる */
   }
 
+  /* ナビゲーションの設定 */
   .navbar-nav {
     display: flex; /* フレックスボックスで横並び */
     flex-wrap: nowrap; /* 折り返さない */
@@ -452,11 +467,13 @@ section {
     text-align: center; /* 中央揃え */
   }
 
+  /* ナビゲーションリンクのフォントサイズとパディング調整 */
   .nav-link {
     font-size: 14px; /* フォントサイズを調整 */
     padding: 10px; /* パディングを調整 */
   }
 }
+
 
 .service {
   position: relative;
@@ -1064,7 +1081,7 @@ button:hover {
 }
 
 /* スマホ表示時: ランチメニューの背景を上に50px長くする */
-@media (max-width: 767px) {
+@media (max-width: px) {
   #lunch-services .background-image {
     bottom: 50px; /* 背景の下端位置を50px下げる */
     height: calc(60% + 50px); /* 背景の高さを50px長くする */
