@@ -882,13 +882,14 @@ button:hover {
 }
 
 /* スライドインアニメーション */
+/* ランチメニューのスライドインアニメーション */
 @keyframes slideInTextLunch {
   0% {
-    transform: translateX(100%);
+    transform: translateX(100%); /* スライドイン開始位置 */
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(20%); /* スライドイン終了位置を50%に変更 */
     opacity: 1;
   }
 }
@@ -953,7 +954,7 @@ button:hover {
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(-20%);
     opacity: 1;
   }
 }
@@ -1038,6 +1039,7 @@ button:hover {
 .more-info-lunch .more-text,
 .more-info-dinner .more-text {
   display: none;
+  font-size: inherit;  /* 親要素のフォントサイズを継承 */
 }
 
 .more-link {
