@@ -781,6 +781,7 @@ h5,
 button:hover {
   opacity: 0.7;
 }
+/* ランチ */
 
 /* ランチ */
 /* ランチ */
@@ -814,7 +815,6 @@ button:hover {
   height: 100%;
   object-fit: cover;  /* 縦横比を保ちながら親要素にフィット */
 }
-
 
 /* ランチメニューの背景画像設定 */
 #lunch-services .background-image {
@@ -916,6 +916,7 @@ button:hover {
 .row .col-md-6 {
   flex: 1 1 50%;
 }
+
 /* ディナーメニューセクション */
 #dinner-services {
   position: relative;
@@ -1059,5 +1060,20 @@ button:hover {
   100% {
     transform: translateX(0); /* 元の位置にスライドイン */
     opacity: 1;
+  }
+}
+
+/* スマホ表示時: ランチメニューの背景を上に50px長くする */
+@media (max-width: 767px) {
+  #lunch-services .background-image {
+    bottom: 50px; /* 背景の下端位置を50px下げる */
+    height: calc(60% + 50px); /* 背景の高さを50px長くする */
+  }
+  
+  /* ディナーメニューの背景を下に30px長くする */
+  #dinner-services .background-image {
+    top: auto;   /* 上端位置を解除 */
+    bottom: 30px; /* 背景の下端位置を30px下げる */
+    height: calc(60% + 30px); /* 背景の高さを30px長くする */
   }
 }
