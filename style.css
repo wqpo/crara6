@@ -558,7 +558,6 @@ h5,
 
 }
 
-
 .footer-top {
   margin: 0; /* 左右の余白をリセット */
   padding: 50px 0; /* 上下のパディングはそのまま */
@@ -573,19 +572,17 @@ h5,
   /* margin-left, margin-right, padding-left, padding-rightは不要 */
 }
 
-
-
 .footer-top h5 {
   margin: 0; /* マージンをリセット */
   white-space: nowrap; /* 改行を防ぐ */
   color: black; /* h5の文字色も黒に変更 */
 }
 
-
 .icon {
   width: 24px; /* 元のアイコンのサイズ */
   height: 24px;
 }
+
 .icon-small {
   width: 20px; /* 電話とメールのアイコンサイズを少し小さく */
   height: 20px;
@@ -619,7 +616,6 @@ h5,
 .footer-top .row:last-child .col-12 {
   flex-direction: row; /* 横並び */
   justify-content: center; /* 中央揃え */
-
 }
 
 .phone-link {
@@ -680,6 +676,52 @@ h5,
 /* ホバー時のスタイル */
 .instagram-link:hover h5 {
   color: blue; /* ホバー時に文字色を青に変更 */
+}
+
+/* スマホ表示時の変更（最大幅767px以下） */
+@media (max-width: 767.98px) {
+  /* アイコンサイズを小さく */
+  .icon {
+    width: 18px; /* アイコンのサイズを小さく */
+    height: 18px;
+  }
+  
+  .icon-small {
+    width: 16px; /* 電話とメールのアイコンサイズをさらに小さく */
+    height: 16px;
+  }
+
+  /* テキストをアイコンの横ではなく改行して表示 */
+  .footer-top .row:last-child .col-12 {
+    flex-direction: column; /* アイコンとテキストを縦に並べる */
+    align-items: center; /* 中央揃え */
+    text-align: center; /* 中央揃え */
+  }
+
+  /* アイコンとテキストの間隔を調整 */
+  .footer-top .row:last-child .col-12 .text-center span {
+    display: block; /* 改行を強制 */
+    font-size: 0.875rem; /* テキストサイズを小さく */
+    margin-top: 5px; /* アイコンとの間隔を調整 */
+  }
+
+  /* 仕切り線がはみ出す文字を非表示にする */
+  .border-start,
+  .border-end {
+    display: block; /* 縦線を表示 */
+    overflow: hidden; /* はみ出した文字を非表示に */
+    text-overflow: ellipsis; /* 文字がはみ出した場合に「...」を表示 */
+    white-space: nowrap; /* テキストの改行を防ぐ */
+  }
+
+  /* 仕切り線に影響されないように調整 */
+  .footer-top .row:last-child .col-12 .phone-link,
+  .footer-top .row:last-child .col-12 .reservation-link,
+  .footer-top .row:last-child .col-12 .access-link {
+    text-overflow: ellipsis; /* 文字がはみ出した場合に「...」を表示 */
+    overflow: hidden; /* はみ出した部分を非表示に */
+    white-space: nowrap; /* 改行を防ぐ */
+  }
 }
 
 
@@ -799,9 +841,6 @@ button:hover {
   opacity: 0.7;
 }
 /* ランチ */
-
-/* ランチ */
-/* ランチ */
 /* ランチメニューセクション */
 #lunch-services {
   position: relative;
@@ -809,28 +848,6 @@ button:hover {
   padding: 60px 0; /* 上下に60pxの余白 */
   overflow: hidden;
   min-height: 100vh; /* セクションの高さを最小100vh（画面全体の高さ）に設定 */
-}
-
-/* ランチメニューの動画の設定 */
-/* ランチメニューの動画の設定 (アニメーションを削除) */
-#lunch-services .video-wrapper {
-  position: absolute;  /* 絶対配置で全画面表示 */
-  top: 50px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden; /* 画面外の部分を隠す */
-}
-
-/* ランチメニュー動画自体 (アニメーションを削除) */
-#lunch-services .video-wrapper video {
-  position: absolute; /* 動画は絶対配置 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  /* 縦横比を保ちながら親要素にフィット */
 }
 
 /* ランチメニューの背景画像設定 */
@@ -844,7 +861,6 @@ button:hover {
   background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
   backdrop-filter: blur(10px); /* 背景にぼかし効果 */
   object-fit: cover;
-  
   transform: translateX(100%);
   animation: slideInBackgroundLunch 1.8s ease-out forwards;
 }
@@ -856,12 +872,6 @@ button:hover {
   100% {
     transform: translateX(0); /* スライドインして元の位置 */
   }
-}
-
-#lunch-services .background-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* ランチメニューの文字コンテンツ設定 */
@@ -926,12 +936,27 @@ button:hover {
   }
 }
 
-/* ランチメニュー詳細の調整 */
-#lunch-services .row p {
-  font-size: 0.85rem;
-}
-.row .col-md-6 {
-  flex: 1 1 50%;
+/* スマホ表示時: ランチメニューの背景を上に50px長くする */
+@media (max-width: 767.98px) {
+  #lunch-services .background-image {
+    bottom: 50px; /* 背景の下端位置を50px下げる */
+    height: calc(60% + 50px); /* 背景の高さを50px長くする */
+  }
+  
+  /* ランチメニューのテキストサイズ調整 */
+  #lunch-services .container {
+    font-size: 4vw;  /* テキストのフォントサイズを少し大きく */
+    text-align: center; /* テキストを中央揃えに変更 */
+    max-width: 80%; /* テキストの最大幅を広げる */
+  }
+  
+  #lunch-services h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem); /* スマホ表示でフォントサイズを調整 */
+  }
+
+  #lunch-services p {
+    font-size: clamp(1rem, 4vw, 1.4rem); /* スマホ表示でフォントサイズを調整 */
+  }
 }
 
 /* ディナーメニューセクション */
@@ -940,26 +965,6 @@ button:hover {
   background-color: white;
   padding: 60px 0; /* 上下に60pxの余白 */
   min-height: 100vh; /* セクションの高さを最小100vh（画面全体の高さ）に設定 */
-}
-
-/* ディナーメニューの動画の設定 */
-#dinner-services .video-wrapper {
-  position: absolute;  /* 絶対配置で全画面表示 */
-  top: 0;
-  left: 0;
-  width: 100%;         /* 横幅100% */
-  height: 100%;        /* 高さ100% */
-  z-index: 0;          /* 動画を最も下に配置 */
-}
-
-/* ディナーメニュー動画自体 */
-#dinner-services .video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;         /* 横幅100% */
-  height: 100%;        /* 高さ100% */
-  object-fit: cover;   /* 縦横比を保ちながら親要素にフィット */
 }
 
 /* ディナーメニューの背景画像設定 */
@@ -994,103 +999,26 @@ button:hover {
   object-fit: cover;
 }
 
-/* ディナーメニューの文字コンテンツ設定 */
-#dinner-services .container {
-  position: absolute;
-  top: 20px;            /* 動画の左上に配置（上から20px） */
-  left: 20px;           /* 動画の左上に配置（左から20px） */
-  z-index: 1;
-  color: black;
-  padding: 0;
-  text-align: left;     /* 左寄せに変更 */
-  font-size: 2vw;
-  max-width: 50%;
-  transform: translateX(-100%);  /* 初期状態: 画面外左に配置 */
-  opacity: 0; /* 初期状態: 非表示 */
-  animation: slideInTextDinner 1.5s ease-out 0.3s forwards; /* スライドインタイミング */
-}
-
-@keyframes slideInTextDinner {
-  0% {
-    transform: translateX(-100%); /* 初期位置（画面外左） */
-    opacity: 0;  /* 初期状態で非表示 */
-  }
-  100% {
-    transform: translateX(0); /* 元の位置にスライドイン */
-    opacity: 1; /* 最後に完全に表示 */
-  }
-}
-
-/* ディナーメニューのヘッダータイトル */
-#dinner-services h1 {
-  opacity: 0;
-  animation: fadeInTitleDinner 1.8s ease-in-out forwards; /* 調整: 少し遅めに表示 */
-  white-space: nowrap;  /* 改行を禁止 */
-  margin-top: 30px;
-}
-
-@keyframes fadeInTitleDinner {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* ディナーメニューのサブテキスト */
-#dinner-services p {
-  opacity: 0;
-  animation: fadeInTextDinner 2s ease-in-out 0.4s forwards; /* 調整: 少し遅延時間を短縮 */
-}
-
-@keyframes fadeInTextDinner {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* ディナーメニュー詳細の調整 */
-#dinner-services .row p {
-  font-size: 0.85rem;
-}
-
-.row .col-md-6 {
-  flex: 1 1 50%;
-}
-
-/* 初期状態: アニメーションを非表示 */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateX(-100%); /* 初期位置（画面外左） */
-  animation: slideInTextDinner 1.5s ease-out forwards; /* スライドインアニメーション */
-}
-
-@keyframes slideInTextDinner {
-  0% {
-    transform: translateX(-100%); /* 初期位置（画面外左） */
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0); /* 元の位置にスライドイン */
-    opacity: 1;
-  }
-}
-
-/* スマホ表示時: ランチメニューの背景を上に50px長くする */
-@media (max-width: px) {
-  #lunch-services .background-image {
-    bottom: 50px; /* 背景の下端位置を50px下げる */
-    height: calc(60% + 50px); /* 背景の高さを50px長くする */
-  }
-  
-  /* ディナーメニューの背景を下に30px長くする */
+/* スマホ表示時: ディナーメニューの背景を下に30px長くする */
+@media (max-width: 767.98px) {
   #dinner-services .background-image {
     top: auto;   /* 上端位置を解除 */
     bottom: 30px; /* 背景の下端位置を30px下げる */
     height: calc(60% + 30px); /* 背景の高さを30px長くする */
+  }
+
+  /* ディナーメニューのテキストサイズ調整 */
+  #dinner-services .container {
+    font-size: 4vw;  /* テキストのフォントサイズを少し大きく */
+    text-align: center; /* テキストを中央揃えに変更 */
+    max-width: 80%; /* テキストの最大幅を広げる */
+  }
+
+  #dinner-services h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem); /* スマホ表示でフォントサイズを調整 */
+  }
+
+  #dinner-services p {
+    font-size: clamp(1rem, 4vw, 1.4rem); /* スマホ表示でフォントサイズを調整 */
   }
 }
