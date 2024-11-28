@@ -429,23 +429,6 @@ section {
 
 
 
-/* スマホ表示のランチメニュー */
-@media (max-width: 767px) {
-  .lunch-menu .white-overlay {
-      width: 40px;
-      height: 100px;
-      margin-right: 5px; /* 右に余白5px */
-  }
-  
-  /* ディナーメニュー */
-  .dinner-menu .white-overlay {
-      width: 40px;
-      height: 100px;
-      margin-left: 5px; /* 左に余白5px */
-  }
-}
-
-
 /* スマホ用のスタイル */
 @media (max-width: 767.98px) {
   .row {
@@ -799,6 +782,7 @@ button:hover {
   opacity: 0.7;
 }
 
+
 /* ランチ */
 /* ランチ */
 /* ランチメニューセクション */
@@ -811,7 +795,6 @@ button:hover {
 }
 
 /* ランチメニューの動画の設定 */
-/* ランチメニューの動画の設定 (アニメーションを削除) */
 #lunch-services .video-wrapper {
   position: absolute;  /* 絶対配置で全画面表示 */
   top: 50px;
@@ -822,16 +805,15 @@ button:hover {
   overflow: hidden; /* 画面外の部分を隠す */
 }
 
-/* ランチメニュー動画自体 (アニメーションを削除) */
+/* ランチメニュー動画自体 */
 #lunch-services .video-wrapper video {
-  position: absolute; /* 動画は絶対配置 */
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;  /* 縦横比を保ちながら親要素にフィット */
 }
-
 
 /* ランチメニューの背景画像設定 */
 #lunch-services .background-image {
@@ -846,8 +828,9 @@ button:hover {
   object-fit: cover;
   
   transform: translateX(100%);
-  animation: slideInBackgroundLunch 1.8s ease-out forwards;
+  animation: slideInBackgroundLunch 1.5s ease-out forwards;
 }
+  
 
 @keyframes slideInBackgroundLunch {
   0% {
@@ -877,7 +860,7 @@ button:hover {
   max-width: 50%;
   transform: translateX(100%);  /* 初期状態: 画面外右 */
   opacity: 0; /* 初期状態: 非表示 */
-  animation: slideInTextLunch 1.5s ease-out 0.3s forwards; /* 調整: スライドインタイミングを早めた */
+  animation: slideInTextLunch 1.5s ease-out 0.5s forwards; /* ランチのテキストスライドイン */
 }
 
 @keyframes slideInTextLunch {
@@ -894,7 +877,7 @@ button:hover {
 /* ランチメニューのヘッダータイトル */
 #lunch-services h1 {
   opacity: 0;
-  animation: fadeInTitleLunch 1.8s ease-in-out forwards; /* 調整: 少し遅めに表示 */
+  animation: fadeInTitleLunch 2s ease-in-out forwards;
   font-size: clamp(1.5rem, 4vw, 3rem); /* 動的に変化する文字サイズ */
   margin-top: 30px !important;
 }
@@ -911,10 +894,11 @@ button:hover {
 /* ランチメニューのサブテキスト */
 #lunch-services p {
   opacity: 0;
-  animation: fadeInTextLunch 2s ease-in-out 0.4s forwards; /* 調整: 少し遅延時間を短縮 */
+  animation: fadeInTextLunch 2s ease-in-out forwards;
   font-size: clamp(1rem, 2.5vw, 1.5rem); /* 動的に変化する文字サイズ */
   max-height: 100%;  /* 背景画像からはみ出さないように */
   overflow: hidden;  /* はみ出した部分は隠す */
+  
 }
 
 @keyframes fadeInTextLunch {
@@ -933,6 +917,7 @@ button:hover {
 .row .col-md-6 {
   flex: 1 1 50%;
 }
+
 /* ディナーメニューセクション */
 #dinner-services {
   position: relative;
@@ -973,9 +958,13 @@ button:hover {
   backdrop-filter: blur(10px); /* 背景にぼかし効果 */
   object-fit: cover;
   border-radius: 0 !important;
-  transform: translateX(-100%); /* 初期位置を画面外左に設定 */
+  transform: translateX(-100%);
   animation: slideInBackgroundDinner 1.5s ease-out forwards;
   overflow: hidden;
+}
+
+#dinner-services .background-image {
+  width: calc(50% + 30px);  /* 30px右に増加 */
 }
 
 @keyframes slideInBackgroundDinner {
@@ -1004,9 +993,9 @@ button:hover {
   text-align: left;     /* 左寄せに変更 */
   font-size: 2vw;
   max-width: 50%;
-  transform: translateX(-100%);  /* 初期状態: 画面外左に配置 */
+  transform: translateX(-100%);  /* 初期状態: 画面外左 */
   opacity: 0; /* 初期状態: 非表示 */
-  animation: slideInTextDinner 1.5s ease-out 0.3s forwards; /* スライドインタイミング */
+  animation: slideInTextDinner 1.5s ease-out 0.5s forwards; /* ディナーのテキストスライドイン */
 }
 
 @keyframes slideInTextDinner {
@@ -1023,7 +1012,7 @@ button:hover {
 /* ディナーメニューのヘッダータイトル */
 #dinner-services h1 {
   opacity: 0;
-  animation: fadeInTitleDinner 1.8s ease-in-out forwards; /* 調整: 少し遅めに表示 */
+  animation: fadeInTitleDinner 2s ease-in-out forwards;
   white-space: nowrap;  /* 改行を禁止 */
   margin-top: 30px;
 }
@@ -1040,7 +1029,7 @@ button:hover {
 /* ディナーメニューのサブテキスト */
 #dinner-services p {
   opacity: 0;
-  animation: fadeInTextDinner 2s ease-in-out 0.4s forwards; /* 調整: 少し遅延時間を短縮 */
+  animation: fadeInTextDinner 2s ease-in-out forwards;
 }
 
 @keyframes fadeInTextDinner {
@@ -1061,20 +1050,38 @@ button:hover {
   flex: 1 1 50%;
 }
 
-/* 初期状態: アニメーションを非表示 */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateX(-100%); /* 初期位置（画面外左） */
-  animation: slideInTextDinner 1.5s ease-out forwards; /* スライドインアニメーション */
-}
 
-@keyframes slideInTextDinner {
-  0% {
-    transform: translateX(-100%); /* 初期位置（画面外左） */
-    opacity: 0;
+/* スマホ */
+/* スマホ表示時の調整 */
+@media screen and (max-width: 768px) {
+
+  /* ランチメニューの背景画像設定 */
+  #lunch-services .background-image {
+    position: absolute;
+    bottom: 30px;
+    right: 5px; /* 右の余白を5pxに変更 */
+    z-index: 1;
+    width: calc(100% - 40px);  /* 横に40pxの余白 */
+    height: 100px; /* 縦に100px */
+    background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
+    backdrop-filter: blur(10px); /* 背景にぼかし効果 */
+    object-fit: cover;
+    transform: translateX(100%);
+    animation: slideInBackgroundLunch 1.5s ease-out forwards;
   }
-  100% {
-    transform: translateX(0); /* 元の位置にスライドイン */
-    opacity: 1;
+
+  /* ディナーメニューの背景画像設定 */
+  #dinner-services .background-image {
+    position: absolute;
+    top: 20px;
+    left: 5px; /* 左の余白を5pxに変更 */
+    z-index: 1;
+    width: calc(100% - 40px);  /* 横に40pxの余白 */
+    height: 100px; /* 縦に100px */
+    background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
+    backdrop-filter: blur(10px); /* 背景にぼかし効果 */
+    object-fit: cover;
+    transform: translateX(-100%);
+    animation: slideInBackgroundDinner 1.5s ease-out forwards;
   }
 }
