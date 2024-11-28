@@ -1097,6 +1097,12 @@ button:hover {
 /* スマホ */
 /* スマホ表示時の調整 */
 /* スマホ表示時の調整 */
+@media (max-width: 600px) {
+  /* スマホ用のスタイル */
+  .example-class {
+    opacity: 1; /* 例として */
+  }
+}
 @media (max-width: 767.98px) {
   body {
     background-attachment: scroll; /* スマホ表示では背景画像がスクロールするように */
