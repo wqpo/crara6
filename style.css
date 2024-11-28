@@ -1087,7 +1087,6 @@ button:hover {
   flex: 1 1 50%;
 }
 
-
 /* スマホ */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
@@ -1104,7 +1103,7 @@ button:hover {
     transform: translateX(100%); /* 初期状態で右にスライドアウト */
     animation: slideInBackgroundLunch 1.5s ease-out forwards; /* アニメーション追加 */
     top: 10vh; /* 上に10vh追加 */
-    clip-path: inset(0 0 5vh 0); /* 下部5vhを削除 */
+    clip-path: inset(8vh 0 5vh 0); /* 左8vh、下5vhを削除 */
   }
 
   /* ランチメニューの背景画像アニメーション */
@@ -1129,8 +1128,18 @@ button:hover {
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
     transform: translateX(0); /* スライドインを解除 */
-    animation: none; /* アニメーションを無効化 */
-    clip-path: inset(5vh 0 0 0); /* 上部5vhを削除 */
+    animation: slideInBackgroundDinner 1.5s ease-out forwards;
+    clip-path: inset(5vh 8vh 0 0); /* 上5vh、右8vhを削除 */
+  }
+
+  /* ディナーメニューの背景画像アニメーション */
+  @keyframes slideInBackgroundDinner {
+    0% {
+      transform: translateX(-100%); /* 初期位置（画面外左） */
+    }
+    100% {
+      transform: translateX(0); /* スライドインして元の位置 */
+    }
   }
 
   /* ディナーメニューのテキストスライドイン */
