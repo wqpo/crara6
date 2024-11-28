@@ -594,9 +594,23 @@ h5,
     display: none; /* ここでも不要なテキストを非表示 */
   }
 
-  /* スマホ向けにフォントサイズを小さくする */
+  /* フォントサイズを小さくする */
   .footer-top h5 {
-    font-size: 11px; /* フォントサイズを14pxに変更 */
+    font-size: 11px; /* フォントサイズを小さく */
+  }
+
+  /* アイコンのサイズを小さくする（例えばFont Awesome アイコン） */
+  .footer-top .col-4 i, 
+  .footer-top .col-4 img {
+    font-size: 20px;  /* アイコンのサイズを小さく */
+    width: 25px;      /* アイコンが画像の場合、画像の幅を小さく */
+    height: 25px;     /* アイコンが画像の場合、画像の高さを小さく */
+  }
+
+  /* 他のテキスト（例えばリンク）のフォントサイズを小さく */
+  .footer-top .col-4 p, 
+  .footer-top .col-4 a {
+    font-size: 10px; /* フォントサイズをさらに小さく */
   }
 }
 
