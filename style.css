@@ -967,14 +967,15 @@ button:hover {
   #lunch-services .container .row,
   #dinner-services .container .row {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; /* 1列表示 */
     justify-content: center;
+    align-items: flex-start; /* 左揃え */
   }
 
   /* 各メニュー列の設定 */
   #lunch-services .container .col-md-6,
   #dinner-services .container .col-md-6 {
-    flex: 0 0 48%; /* 各メニューを48%幅にして2列表示 */
+    flex: 0 0 100%; /* 各メニューを48%幅にして2列表示 */
     margin: 10px 1%; /* カラムの間隔を少し調整 */
   }
 
@@ -988,9 +989,9 @@ button:hover {
   /* 背景画像のサイズ調整 */
   #lunch-services .background-image,
   #dinner-services .background-image {
-    width: 90%; /* 幅を画面に合わせて縮小 */
+    width: 85%; /* 幅を画面に合わせて縮小 */
     height: 50%; /* 高さはそのまま */
-    padding-top: 50px !important;
+    padding-top: 30px !important;
     margin-left: auto;
     margin-right: auto;
   }
