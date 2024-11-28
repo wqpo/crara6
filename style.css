@@ -1098,13 +1098,8 @@ button:hover {
 /* スマホ */
 /* スマホ表示時の調整 */
 /* スマホ表示時の調整 */
-@media (max-width: 767.98px) {
-  body {
-    background-attachment: scroll; /* スマホ表示では背景画像がスクロールするように */
-  }
-}
 @media screen and (max-width: 768px) {
-
+  /* スマホ表示時の調整 */
   #lunch-services .background-image {
     position: absolute;
     bottom: 30px;
@@ -1119,7 +1114,6 @@ button:hover {
     animation: none; /* アニメーションを無効化 */
     top: 10vh; /* 上に10vh追加 */
   }
-  
 
   /* ディナーメニューの背景画像設定 */
   #dinner-services .background-image {
@@ -1135,5 +1129,4 @@ button:hover {
     transform: translateX(0); /* スライドインを解除 */
     animation: none; /* アニメーションを無効化 */
   }
-
 }
