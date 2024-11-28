@@ -1059,7 +1059,6 @@ button:hover {
     background-attachment: scroll; /* スマホ表示では背景画像がスクロールするように */
   }
 }
-
 @media screen and (max-width: 768px) {
 
   /* ランチメニューの背景画像設定 */
@@ -1069,12 +1068,12 @@ button:hover {
     right: 5px; /* 右の余白を5pxに変更 */
     z-index: 1;
     width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: calc(100px + 750vh); /* 縦に100pxから80pxを延長（合計180px） */
+    height: 1050vh; /* 縦に100pxから1000vhを追加（合計1100vh） */
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
-    transform: translateX(100%);
-    animation: slideInBackgroundLunch 1.5s ease-out forwards;
+    transform: translateX(0); /* スライドインを解除 */
+    animation: none; /* アニメーションを無効化 */
   }
 
   /* ディナーメニューの背景画像設定 */
@@ -1084,12 +1083,12 @@ button:hover {
     left: 5px; /* 左の余白を5pxに変更 */
     z-index: 1;
     width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: calc(100px + 1400vh); /* 縦に100pxから1000vhを追加（合計1100vh） */
+    height: 1100vh; /* 縦に100pxから1000vhを追加（合計1100vh） */
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
-    transform: translateX(-100%);
-    animation: slideInBackgroundDinner 1.5s ease-out forwards;
-}
-}
+    transform: translateX(0); /* スライドインを解除 */
+    animation: none; /* アニメーションを無効化 */
+  }
 
+}
