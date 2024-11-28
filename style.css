@@ -434,13 +434,13 @@ section {
   /* ランチメニューの背景を上に50px長くする */
   #lunch-services .background-image {
     bottom: 50px; /* 背景の下端位置を50px上げる */
-    height: calc(60% + 50px); /* 背景の高さを50px長くする */
+    height: calc(60% + 50px)!important; /* 背景の高さを50px長くする */
   }
 
   /* ディナーメニューの背景を下に30px長くする */
   #dinner-services .background-image {
     bottom: 30px; /* 背景の下端位置を30px下げる */
-    height: calc(60% + 30px); /* 背景の高さを30px長くする */
+    height: calc(60% + 30px)!important; /* 背景の高さを30px長くする */
   }
 
   /* 横並びのレイアウト */
