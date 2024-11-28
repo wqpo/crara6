@@ -540,8 +540,6 @@ h5,
   margin: 10px; /* マージンを追加 */
 
 }
-
-
 .footer-top {
   margin: 0; /* 左右の余白をリセット */
   padding: 50px 0; /* 上下のパディングはそのまま */
@@ -556,14 +554,11 @@ h5,
   /* margin-left, margin-right, padding-left, padding-rightは不要 */
 }
 
-
-
 .footer-top h5 {
   margin: 0; /* マージンをリセット */
   white-space: nowrap; /* 改行を防ぐ */
   color: black; /* h5の文字色も黒に変更 */
 }
-
 
 .icon {
   width: 24px; /* 元のアイコンのサイズ */
@@ -585,10 +580,12 @@ h5,
 
 .border-start {
   border-left: 1px solid white; /* 左の仕切り線 */
+  overflow: hidden; /* 仕切り線を越えた部分は隠す */
 }
 
 .border-end {
   border-right: 1px solid white; /* 右の仕切り線 */
+  overflow: hidden; /* 仕切り線を越えた部分は隠す */
 }
 
 /* 新しいCSS */
@@ -599,10 +596,9 @@ h5,
   width: 100% !important;
 }
 
-.footer-top .row:last-child .col-12 {
+.-top .row:last-child .col-12 {
   flex-direction: row; /* 横並び */
   justify-content: center; /* 中央揃え */
-
 }
 
 .phone-link {
@@ -665,7 +661,48 @@ h5,
   color: blue; /* ホバー時に文字色を青に変更 */
 }
 
+/* スマホサイズ用メディアクエリ */
+@media (max-width: 768px) {
+  /* アイコンのサイズを小さく */
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
 
+  .icon-small {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* アイコンとテキストを改行 */
+  .footer-top .row:last-child .col-12 {
+    display: block; /* 縦並びにする */
+    text-align: center; /* 中央揃え */
+  }
+
+  /* 仕切り線の文字が越えないように隠す */
+  .border-start, .border-end {
+    overflow: hidden;
+    white-space: nowrap; /* 文字が改行しないようにする */
+  }
+
+  /* 交通アクセスリンクのアイコンと文字の間隔を縮小 */
+  .access-link-container {
+    flex-direction: column; /* 縦並びに変更 */
+    align-items: center;
+  }
+
+  .access-icon {
+    width: 30px; /* アイコンのサイズを縮小 */
+    height: auto;
+    margin-right: 0; /* アイコンと文字の間隔を無くす */
+    margin-bottom: 5px; /* アイコンとテキストの間隔を調整 */
+  }
+
+  .access-link {
+    font-size: 16px; /* フォントサイズを少し小さくする */
+  }
+}
 
 
 /* 🍳 */
@@ -781,8 +818,9 @@ h5,
 button:hover {
   opacity: 0.7;
 }
-
-
+/* ランチ */
+/* ランチ */
+/* ランチ */
 /* ランチ */
 /* ランチ */
 /* ランチメニューセクション */
@@ -829,7 +867,11 @@ button:hover {
   
   transform: translateX(100%);
   animation: slideInBackgroundLunch 1.5s ease-out forwards;
+
+  /* 上部30vhを削除するためのclip-path */
+  clip-path: inset(30vh 0 0 0);
 }
+
   
 
 @keyframes slideInBackgroundLunch {
@@ -961,6 +1003,7 @@ button:hover {
   transform: translateX(-100%);
   animation: slideInBackgroundDinner 1.5s ease-out forwards;
   overflow: hidden;
+  clip-path: inset(0 0 10vh 0);
 }
 
 #dinner-services .background-image {
@@ -1049,6 +1092,7 @@ button:hover {
 .row .col-md-6 {
   flex: 1 1 50%;
 }
+
 
 
 /* スマホ */
