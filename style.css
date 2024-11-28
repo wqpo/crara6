@@ -1094,12 +1094,9 @@ button:hover {
 }
 
 
-
 /* スマホ */
-/* スマホ表示時の調整 */
-/* スマホ表示時の調整 */
 @media screen and (max-width: 768px) {
-  /* スマホ表示時の調整 */
+  /* ランチメニューの背景画像設定 */
   #lunch-services .background-image {
     position: absolute;
     bottom: 30px;
@@ -1110,9 +1107,20 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
-    transform: translateX(0); /* スライドインを解除 */
-    animation: none; /* アニメーションを無効化 */
+    transform: translateX(100%); /* 初期状態で右にスライドアウト */
+    animation: slideInBackgroundLunch 1.5s ease-out forwards; /* アニメーション追加 */
     top: 10vh; /* 上に10vh追加 */
+    clip-path: inset(0 0 5vh 0); /* 下部5vhを削除 */
+  }
+
+  /* ランチメニューの背景画像アニメーション */
+  @keyframes slideInBackgroundLunch {
+    0% {
+      transform: translateX(100%); /* 初期位置（画面外右） */
+    }
+    100% {
+      transform: translateX(0); /* スライドインして元の位置 */
+    }
   }
 
   /* ディナーメニューの背景画像設定 */
@@ -1128,5 +1136,6 @@ button:hover {
     object-fit: cover;
     transform: translateX(0); /* スライドインを解除 */
     animation: none; /* アニメーションを無効化 */
+    clip-path: inset(5vh 0 0 0); /* 上部5vhを削除 */
   }
 }
