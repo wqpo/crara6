@@ -1089,59 +1089,96 @@ button:hover {
 
 
 /* スマホ */
+/* スマホ */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
   #lunch-services .background-image {
     position: absolute;
-    bottom: 30px;
-    right: 5px; /* 右の余白を5pxに変更 */
+    bottom: 0; /* 写真の下に配置 */
+    right: 0; /* 右端に配置 */
     z-index: 1;
-    width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: calc(80vh + 10vh); /* 80vhに10vhを追加（合計90vh） */
-    background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
-    backdrop-filter: blur(10px); /* 背景にぼかし効果 */
+    width: 100%;  /* 横幅100% */
+    height: auto; /* 高さは自動調整 */
+    background-color: transparent; /* 背景色は透明 */
+    backdrop-filter: none; /* ぼかし効果を無効化 */
     object-fit: cover;
-    transform: translateX(100%); /* 初期状態で右にスライドアウト */
-    animation: slideInBackgroundLunch 1.5s ease-out forwards; /* アニメーション追加 */
-    top: 10vh; /* 上に10vh追加 */
-    clip-path: inset(0 0 5vh 0); /* 下部5vhを削除 */
+    transform: none; /* スライドインなし */
+    clip-path: none; /* クリッピング無し */
+    animation: none; /* アニメーションなし */
   }
 
-  /* ランチメニューの背景画像アニメーション */
-  @keyframes slideInBackgroundLunch {
-    0% {
-      transform: translateX(100%); /* 初期位置（画面外右） */
-    }
-    100% {
-      transform: translateX(0); /* スライドインして元の位置 */
-    }
+  /* ランチメニューの文字コンテンツ設定 */
+  #lunch-services .container {
+    position: relative; /* 絶対位置を相対位置に変更 */
+    bottom: auto; /* 写真の下に配置 */
+    right: auto; /* 右端の位置調整を解除 */
+    left: 0;
+    z-index: 2;
+    color: black;
+    padding: 20px;
+    text-align: left;  /* 左寄せ */
+    font-size: 1.2rem; /* 少し大きめの文字サイズ */
+    max-width: 100%; /* 横幅を100%に */
+    transform: none;  /* スライドインなし */
+    opacity: 1; /* 最初から表示 */
+  }
+
+  /* ランチメニューのヘッダータイトル */
+  #lunch-services h1 {
+    opacity: 1; /* 初めから表示 */
+    font-size: 1.8rem; /* フォントサイズを固定 */
+    margin-top: 20px; /* 上の余白調整 */
+  }
+
+  /* ランチメニューのサブテキスト */
+  #lunch-services p {
+    opacity: 1; /* 初めから表示 */
+    font-size: 1.1rem; /* 少し大きめの文字サイズ */
+    margin-top: 10px; /* 上の余白調整 */
   }
 
   /* ディナーメニューの背景画像設定 */
   #dinner-services .background-image {
     position: absolute;
-    top: 20px;
-    left: 5px; /* 左の余白を5pxに変更 */
+    top: 0;
+    left: 0;
     z-index: 1;
-    width: calc(100% - 40px);  /* 横に40pxの余白 */
-    height: 83vh; /* 縦に100pxから1000vhを追加（合計1100vh） */
-    background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度を調整） */
-    backdrop-filter: blur(10px); /* 背景にぼかし効果 */
+    width: 100%;  /* 横幅100% */
+    height: auto; /* 高さは自動調整 */
+    background-color: transparent; /* 背景色は透明 */
+    backdrop-filter: none; /* ぼかし効果を無効化 */
     object-fit: cover;
-    transform: translateX(0); /* スライドインを解除 */
-    animation: none; /* アニメーションを無効化 */
-    clip-path: inset(5vh 0 0 0); /* 上部5vhを削除 */
+    transform: none; /* スライドインなし */
+    clip-path: none; /* クリッピング無し */
+    animation: none; /* アニメーションなし */
   }
 
-  /* ディナーメニューのテキストスライドイン */
-  @keyframes slideInTextDinner {
-    0% {
-      transform: translateX(-100%); /* 初期位置（画面外左） */
-      opacity: 0;  /* 初期状態で非表示 */
-    }
-    100% {
-      transform: translateX(0); /* 元の位置にスライドイン */
-      opacity: 1; /* 最後に完全に表示 */
-    }
+  /* ディナーメニューの文字コンテンツ設定 */
+  #dinner-services .container {
+    position: relative; /* 絶対位置を相対位置に変更 */
+    top: auto;
+    left: 0;
+    z-index: 2;
+    color: black;
+    padding: 20px;
+    text-align: left; /* 左寄せ */
+    font-size: 1.2rem; /* 少し大きめの文字サイズ */
+    max-width: 100%; /* 横幅を100%に */
+    transform: none;  /* スライドインなし */
+    opacity: 1; /* 初めから表示 */
+  }
+
+  /* ディナーメニューのヘッダータイトル */
+  #dinner-services h1 {
+    opacity: 1; /* 初めから表示 */
+    font-size: 1.8rem; /* フォントサイズを固定 */
+    margin-top: 20px; /* 上の余白調整 */
+  }
+
+  /* ディナーメニューのサブテキスト */
+  #dinner-services p {
+    opacity: 1; /* 初めから表示 */
+    font-size: 1.1rem; /* 少し大きめの文字サイズ */
+    margin-top: 10px; /* 上の余白調整 */
   }
 }
