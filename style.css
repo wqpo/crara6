@@ -1157,16 +1157,18 @@ button:hover {
     transform: scale(1.3); /* 1.3倍に拡大 */
     transform-origin: center center; /* 拡大の中心を中央に */
     overflow: hidden; /* はみ出した部分を非表示にする */
-    animation: slideInBackgroundDinner 1s ease-out forwards; /* アニメーション追加 */
+    animation: fadeInBackgroundDinner 1s ease-out forwards; /* アニメーション変更 */
   }
 
-  /* ディナーメニューの背景画像アニメーション */
-  @keyframes slideInBackgroundDinner {
+  /* ディナーメニューの背景画像アニメーション（フェードイン） */
+  @keyframes fadeInBackgroundDinner {
     0% {
-      transform: translateX(-100%) scale(0.5); /* 初期位置（画面外左） */
+      opacity: 0; /* 初めは透明 */
+      transform: scale(1.3); /* 拡大した状態 */
     }
     100% {
-      transform: translateX(0) scale(0.5); /* スライドインして元の位置 */
+      opacity: 1; /* 完全に表示 */
+      transform: scale(1); /* 元のサイズに戻る */
     }
   }
 
