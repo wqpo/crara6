@@ -1091,6 +1091,7 @@ button:hover {
 /* スマホ */
 /* スマホ */
 /* スマホ */
+/* スマホ */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
   #lunch-services .background-image {
@@ -1104,7 +1105,9 @@ button:hover {
     backdrop-filter: none; /* ぼかし効果を無効化 */
     object-fit: cover;
     clip-path: inset(0 0 1vh 8vh); /* 上右下左の順番にカット調整 */
-    transform: none; /* スライドインなし */
+    transform: scale(1.5); /* 1.5倍に拡大 */
+    transform-origin: center center; /* 拡大の中心を中央に */
+    overflow: hidden; /* はみ出した部分を非表示にする */
     animation: none; /* アニメーションなし */
   }
 
@@ -1150,7 +1153,9 @@ button:hover {
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
     clip-path: inset(0 5vh 1vh 0); /* 上右下左の順番にカット調整 */
-    transform: none; /* スライドインなし */
+    transform: scale(1.5); /* 1.5倍に拡大 */
+    transform-origin: center center; /* 拡大の中心を中央に */
+    overflow: hidden; /* はみ出した部分を非表示にする */
     animation: slideInBackgroundDinner 1s ease-out forwards; /* アニメーション追加 */
   }
 
@@ -1176,7 +1181,7 @@ button:hover {
     font-size: 1.2rem; /* 少し大きめの文字サイズ */
     max-width: 100%; /* 横幅を100%に */
     transform: none;  /* スライドインなし */
-    opacity: 1; /* 初めから表示 */
+    opacity: 1; /* 最初から表示 */
   }
 
   /* ディナーメニューのヘッダータイトル */
