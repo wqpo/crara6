@@ -866,7 +866,7 @@ button:hover {
   object-fit: cover;
   
   transform: translateX(100%);
-  animation: slideInBackgroundLunch 1.5s ease-out forwards;
+  animation: slideInBackgroundLunch 1s ease-out forwards;
 
   /* 上部30vhを削除するためのclip-path */
   clip-path: inset(30vh 0 0 0);
@@ -900,7 +900,7 @@ button:hover {
   max-width: 50%;
   transform: translateX(100%);  /* 初期状態: 画面外右 */
   opacity: 0; /* 初期状態: 非表示 */
-  animation: slideInTextLunch 1.5s ease-out 0.5s forwards; /* ランチのテキストスライドイン */
+  animation: slideInTextLunch 1s ease-out 0.5s forwards; /* ランチのテキストスライドイン */
 }
 
 @keyframes slideInTextLunch {
@@ -999,7 +999,7 @@ button:hover {
   object-fit: cover;
   border-radius: 0 !important;
   transform: translateX(-100%);
-  animation: slideInBackgroundDinner 1.5s ease-out forwards;
+  animation: slideInBackgroundDinner 1s  forwards;
   overflow: hidden;
   clip-path: inset(0 0 10vh 0);
 }
@@ -1088,7 +1088,6 @@ button:hover {
 }
 
 /* スマホ */
-/* スマホ */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
   #lunch-services .background-image {
@@ -1102,9 +1101,9 @@ button:hover {
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
     transform: translateX(100%) scale(0.5); /* 初期状態で右にスライドアウトして縮小 */
-    animation: slideInBackgroundLunch 1.5s ease-out forwards; /* アニメーション追加 */
+    animation: slideInBackgroundLunch 1s ease-out forwards; /* アニメーション追加 */
     top: 10vh; /* 上に10vh追加 */
-    clip-path: inset(8vh 0 5vh 0); /* 左8vh、下5vhを削除 */
+    clip-path: inset(15vh 0 5vh 0); /* 上を15vhに変更し、下は5vhに設定（より明確に上部をカット） */
   }
 
   /* ランチメニューの背景画像アニメーション */
@@ -1129,7 +1128,7 @@ button:hover {
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
     object-fit: cover;
     transform: translateX(0) scale(0.5); /* 縮小 */
-    animation: slideInBackgroundDinner 1.5s ease-out forwards;
+    animation: slideInBackgroundDinner 1s ease-out forwards;
     clip-path: inset(5vh 8vh 0 0); /* 上5vh、右8vhを削除 */
   }
 
@@ -1158,5 +1157,12 @@ button:hover {
   /* h1 と p のテキストサイズを半分にする */
   h1, p {
     font-size: 50%; /* フォントサイズを半分に */
+    transform: scale(0.5); /* テキストを縮小 */
+  }
+
+  /* ランチメニューのサービスタイトルと詳細テキストも縮小 */
+  #lunch-services h2, #lunch-services p {
+    font-size: 50%; /* 文字サイズを半分に */
+    transform: scale(0.5); /* テキストを縮小 */
   }
 }
