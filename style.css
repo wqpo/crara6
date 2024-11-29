@@ -1092,23 +1092,24 @@ button:hover {
 /* スマホ */
 /* スマホ */
 /* スマホ */
+/* スマホ用設定 */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
   #lunch-services .background-image {
     position: absolute;
-    bottom: -1vh; /* 下を1vh延長 */
-    left: -8vh; /* 左を8vhカット */
+    bottom: 0; /* 下端を合わせる */
+    left: 0; /* 左端を合わせる */
     z-index: 1;
     width: 100%;  /* 横幅100% */
     height: auto; /* 高さは自動調整 */
-    background-color: transparent; /* 背景色は透明 */
-    backdrop-filter: none; /* ぼかし効果を無効化 */
-    object-fit: cover;
-    clip-path: inset(0 0 1vh 8vh); /* 上右下左の順番にカット調整 */
-    transform: scale(1.5); /* 1.5倍に拡大 */
+    background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度） */
+    backdrop-filter: blur(10px); /* 背景にぼかし効果 */
+    object-fit: cover; /* 背景画像が親要素にフィット */
+    clip-path: inset(0 0 0 0); /* 画像の端をカットせずそのまま表示 */
+    transform: scale(1.3); /* 拡大率を適切に調整 */
     transform-origin: center center; /* 拡大の中心を中央に */
     overflow: hidden; /* はみ出した部分を非表示にする */
-    animation: none; /* アニメーションなし */
+    animation: none; /* アニメーションはなし */
   }
 
   /* ランチメニューの文字コンテンツ設定 */
@@ -1151,9 +1152,9 @@ button:hover {
     height: auto; /* 高さは自動調整 */
     background-color: rgba(255, 255, 255, 0.8); /* 白いもや（透明度） */
     backdrop-filter: blur(10px); /* 背景にぼかし効果 */
-    object-fit: cover;
-    clip-path: inset(0 5vh 1vh 0); /* 上右下左の順番にカット調整 */
-    transform: scale(1.5); /* 1.5倍に拡大 */
+    object-fit: cover; /* 背景画像が親要素にフィット */
+    clip-path: inset(0 5vh 1vh 0); /* 画像のカット調整 */
+    transform: scale(1.3); /* 1.3倍に拡大 */
     transform-origin: center center; /* 拡大の中心を中央に */
     overflow: hidden; /* はみ出した部分を非表示にする */
     animation: slideInBackgroundDinner 1s ease-out forwards; /* アニメーション追加 */
