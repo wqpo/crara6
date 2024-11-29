@@ -1090,6 +1090,7 @@ button:hover {
 /* スマホ */
 
 /* スマホ */
+/* スマホ表示の時のスタイル */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
   #lunch-services .background-image {
@@ -1120,22 +1121,27 @@ button:hover {
   #lunch-services h1, #lunch-services p {
     font-size: 50%; /* フォントサイズを半分に */
     transform: scale(0.5); /* テキストを縮小 */
-    margin: 0; /* マージンをゼロにして余白を減らす */
-    padding: 0; /* パディングをゼロにして余白を減らす */
+    margin: 0; /* 余白をゼロに */
+    padding: 0; /* パディングもゼロに */
   }
 
   /* テキストコンテナの設定 */
   #lunch-services .text-container {
     position: relative;
     z-index: 2; /* 白いもやの上に表示 */
-    padding: 10vh 0 5vh 0; /* 上下の余白を調整 */
+    padding: 0; /* 上下の余白をゼロに */
     text-align: center; /* テキストを中央寄せ */
     color: #fff; /* テキストカラーを白に */
   }
 
   /* テキストの余白調整 */
   #lunch-services h1, #lunch-services p {
-    margin-bottom: 10px; /* 各テキストの間隔を縮小 */
+    margin-bottom: 0; /* 各テキストの下部余白をゼロに */
+  }
+
+  /* h1 と p の間の余白を減らす */
+  #lunch-services h1 + p {
+    margin-top: 0; /* h1 と p の間の余白を完全にゼロに */
   }
 
   /* ランチメニューの背景画像アニメーション */
@@ -1146,11 +1152,6 @@ button:hover {
     100% {
       transform: translateX(0) scale(0.5); /* スライドインして元の位置 */
     }
-  }
-  
-  /* テキスト（h1 と p）の間の余白を減らす */
-  #lunch-services h1 + p {
-    margin-top: 5px; /* h1 と p の間の余白を減らす */
   }
 
   /* ディナーメニューの背景画像設定 */
