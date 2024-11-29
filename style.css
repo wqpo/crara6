@@ -1183,7 +1183,7 @@ button:hover {
   /* ディナーメニューのテキストスライドイン */
   @keyframes slideInTextDinner {
     0% {
-      transform: translateX(-100%); /* 初期位置（画面外左） */
+      transform: translateX(100%); /* 初期位置（画面外左） */
       opacity: 0;  /* 初期状態で非表示 */
     }
     100% {
