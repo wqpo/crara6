@@ -1088,8 +1088,6 @@ button:hover {
 }
 
 /* スマホ */
-
-/* スマホ */
 /* スマホ表示の時のスタイル */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
@@ -1107,22 +1105,13 @@ button:hover {
     clip-path: inset(10vh 0 0 0); /* 上部を10vhカット */
   }
 
-  /* ランチメニューの背景画像アニメーション */
-  @keyframes slideInBackgroundLunch {
-    0% {
-      transform: translateX(100%) scale(0.5); /* 初期位置（画面外右） */
-    }
-    100% {
-      transform: translateX(0) scale(0.5); /* スライドインして元の位置 */
-    }
-  }
-
   /* ランチメニューのテキスト設定 */
   #lunch-services h1, #lunch-services p {
     font-size: 50%; /* フォントサイズを半分に */
     transform: scale(0.5); /* テキストを縮小 */
     margin: 0; /* 余白をゼロに */
     padding: 0; /* パディングもゼロに */
+    line-height: 1; /* 行間をリセット */
   }
 
   /* テキストコンテナの設定 */
@@ -1134,24 +1123,9 @@ button:hover {
     color: #fff; /* テキストカラーを白に */
   }
 
-  /* テキストの余白調整 */
-  #lunch-services h1, #lunch-services p {
-    margin-bottom: 0; /* 各テキストの下部余白をゼロに */
-  }
-
   /* h1 と p の間の余白を減らす */
   #lunch-services h1 + p {
     margin-top: 0; /* h1 と p の間の余白を完全にゼロに */
-  }
-
-  /* ランチメニューの背景画像アニメーション */
-  @keyframes slideInBackgroundLunch {
-    0% {
-      transform: translateX(100%) scale(0.5); /* 初期位置（画面外右） */
-    }
-    100% {
-      transform: translateX(0) scale(0.5); /* スライドインして元の位置 */
-    }
   }
 
   /* ディナーメニューの背景画像設定 */
@@ -1183,7 +1157,7 @@ button:hover {
   /* ディナーメニューのテキストスライドイン */
   @keyframes slideInTextDinner {
     0% {
-      transform: translateX(100%); /* 初期位置（画面外左） */
+      transform: translateX(-100%); /* 初期位置（画面外左） */
       opacity: 0;  /* 初期状態で非表示 */
     }
     100% {
@@ -1196,5 +1170,8 @@ button:hover {
   h1, p {
     font-size: 50%; /* フォントサイズを半分に */
     transform: scale(0.5); /* テキストを縮小 */
+    margin: 0; /* 余白をゼロに */
+    padding: 0; /* パディングもゼロに */
+    line-height: 1; /* 行間をリセット */
   }
 }
