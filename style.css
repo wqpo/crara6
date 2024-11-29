@@ -1089,6 +1089,7 @@ button:hover {
 
 /* スマホ */
 /* スマホ表示の時のスタイル */
+/* スマホ表示の時のスタイル */
 @media screen and (max-width: 768px) {
   /* ランチメニューの背景画像設定 */
   #lunch-services .background-image {
@@ -1115,7 +1116,7 @@ button:hover {
   }
 
   /* テキストコンテナの設定 */
-  #lunch-services .text-container {
+  #lunch-services .container {
     position: relative;
     z-index: 2; /* 白いもやの上に表示 */
     padding: 0; /* 上下の余白をゼロに */
