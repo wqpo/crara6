@@ -3,44 +3,26 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # デプロイ対象のブランチ（通常は main）
+      - main  # main ブランチに push された時にデプロイ
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # 実行環境
-
-    steps:
-      # コードのチェックアウト
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # プロジェクトをビルド（静的サイトの場合）
-      - name: Build project
-        run: |
-          npm install   # 必要なパッケージをインストール
-          npm run build  # ビルドコマンド（必要に応じて変更）
-
-      # GitHub Pages用のアーティファクトをアップロード
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages  # アーティファクト名
-          path: ./build  # ビルドした成果物が格納されているディレクトリ（例: ./build）
-
-  deploy:
-    needs: build  # buildジョブが完了するまで待つ
     runs-on: ubuntu-latest
 
     steps:
-      # アーティファクトをダウンロード
-      - name: Download GitHub Pages artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: github-pages  # アップロードしたアーティファクト名と一致
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # GitHub Pagesにデプロイ
+      # npm install で依存関係をインストール
+      - name: Install dependencies
+        run: npm install
+
+      # npm run build を実行
+      - name: Run build
+        run: npm run build  # ダミーで 'No build step required' と表示
+
+      # GitHub Pages 用にファイルをアップロード
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub Tokenを指定
-          artifact_name: github-pages  # 使用するアーティファクト名
+        run: npm run deploy  # gh-pages を使ってデプロイ
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
