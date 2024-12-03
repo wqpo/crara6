@@ -1,11 +1,16 @@
 {
   "name": "crara6",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple static site",
   "main": "index.js",
   "scripts": {
+    "build": "echo 'No build step required'",  // ビルドが必要ない場合、ダミーで追加
+    "deploy": "gh-pages -d .",                  // 現在のディレクトリ（`index.html` がある場所）をデプロイ
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"  // GitHub Pages へのデプロイ用パッケージ
+  }
 }
