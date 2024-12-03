@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # メインブランチでのみ実行
+      - main
 
 jobs:
   deploy:
@@ -20,10 +20,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Configure Git
+    - name: Configure Git for Actions
       run: |
         git config --global user.name "wqpo"
         git config --global user.email "wqpo@users.noreply.github.com"
+        git config --global url."https://${{ secrets.GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
 
     - name: Deploy to GitHub Pages
       env:
