@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main 
+      - main  # メインブランチでのみ実行
 
 jobs:
   deploy:
@@ -26,6 +26,6 @@ jobs:
         git config --global user.email "wqpo@users.noreply.github.com"
 
     - name: Deploy to GitHub Pages
-      run: npm run deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx gh-pages -d .
