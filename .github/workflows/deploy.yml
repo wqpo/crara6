@@ -3,26 +3,29 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # main ブランチに push された時にデプロイ
+      - main 
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      # npm install で依存関係をインストール
-      - name: Install dependencies
-        run: npm install
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
 
-      # npm run build を実行
-      - name: Run build
-        run: npm run build  # ダミーで 'No build step required' と表示
+    - name: Install dependencies
+      run: npm install
 
-      # GitHub Pages 用にファイルをアップロード
-      - name: Deploy to GitHub Pages
-        run: npm run deploy  # gh-pages を使ってデプロイ
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
+    - name: Configure Git
+      run: |
+        git config --global user.name "wqpo"
+        git config --global user.email "wqpo@users.noreply.github.com"
+
+    - name: Deploy to GitHub Pages
+      run: npm run deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
